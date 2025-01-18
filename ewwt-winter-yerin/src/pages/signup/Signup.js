@@ -9,16 +9,29 @@ const Signup = () => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [nickname, setNickname] = useState('');
-    const [error, setError] = useState('');
+    const [usernameError, setUsernameError] = useState('');
+    const [passwordError, setPasswordError] = useState('');
     const navigate = useNavigate();
 
     const handleSignup = async (e) => {
         e.preventDefault();
+        setUsernameError('');
+        setPasswordError('');
+
+        if (password !== confirmPassword) {
+            setPasswordError('비밀번호가 일치하지 않습니다.');
+            return;
+        }
+
         try {
             await axios.post('http://localhost:5000/api/auth/signup', { username, password, confirmPassword, nickname });
             navigate('/');
         } catch (error) {
-            setError(error.response.data.message || '회원가입에 실패했습니다.');
+            if (error.response && error.response.data.message.includes('이미 존재하는 아이디')) {
+                setUsernameError('중복된 아이디입니다.');
+            } else {
+                setUsernameError(error.response.data.message || '회원가입에 실패했습니다.');
+            }
         }
     };
 
@@ -37,6 +50,7 @@ const Signup = () => {
                             value={username}
                             onChange={(e) => setUsername(e.target.value)}
                         />
+                        {usernameError && <p className={styles.error_message}>{usernameError}</p>}
                     </div>
                     <div className={styles.input}>
                         <input 
@@ -53,6 +67,7 @@ const Signup = () => {
                             value={confirmPassword}
                             onChange={(e) => setConfirmPassword(e.target.value)}
                         />
+                        {passwordError && <p className={styles.error_message}>{passwordError}</p>}
                     </div>
                     <div className={styles.input}>
                         <input 
@@ -62,7 +77,6 @@ const Signup = () => {
                             onChange={(e) => setNickname(e.target.value)}
                         />
                     </div>
-                    {error && <p className={styles.error}>{error}</p>}
                     <button type="submit" className={styles.submit}>회원가입</button>
                 </form>
             </div>

@@ -4,6 +4,9 @@ import { useNavigate } from 'react-router-dom';
 import styles from "./Login.module.css";
 import logo from '../../assets/logo.png';
 
+//sweetalert 사용하여 alert 구현
+import Swal from 'sweetalert2'
+
 const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -18,7 +21,20 @@ const Login = () => {
             localStorage.setItem('nickname', response.data.nickname);
             navigate('/home');
         } catch (error) {
-            setError(error.response.data.message || '로그인에 실패했습니다.');
+            Swal.fire({
+                title: "존재하지 않는 아이디거나 비밀번호가 일치하지 않습니다!",
+                showDenyButton: true,
+                confirmButtonText: "회원가입",
+                denyButtonText: `창 닫기`,
+                width: 600,
+                padding: "3em",
+                color: "#000000",
+                background: "#FFFFFF"
+              }).then((result) => {
+                if (result.isConfirmed) {
+                  navigate('/signup');
+                } 
+              });;
         }
     };
 

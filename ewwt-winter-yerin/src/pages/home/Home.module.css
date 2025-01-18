@@ -1,0 +1,68 @@
+.homepage {
+    background-color: black;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: flex-start;
+}
+
+.container_box {
+    margin: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: space-around;
+    width: 100%;
+    height: fit-content;
+}
+
+.logo_container img {
+    width: 150px;
+}
+
+.left_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 85vh;
+    position: relative;
+}
+
+.nickname_container p{
+    color: white;
+}
+
+.logout_btn {
+    position: absolute;
+    bottom: 0;
+}
+
+.logout_btn p{
+    color: white;
+}
+
+.right_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: end;
+}
+
+.text_btn {
+    right: 0;
+    height: 8vh;
+}
+
+.text_btn p {
+    color: white;
+}
+
+.group_container {
+    width: 75vw;
+    height: 80vh;
+    background-color: #424141;
+    border-radius: 5px;
+}

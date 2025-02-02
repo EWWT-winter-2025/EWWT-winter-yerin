@@ -59,4 +59,22 @@ router.post('/login', async (req, res) => {
   }
 });
 
+
+// 회원 탈퇴
+router.delete('/delete-account', auth, async (req, res) => {
+  try {
+    const user = await User.findByIdAndDelete(req.userId);
+
+    if (!user) {
+      return res.status(404).json({ message: "사용자를 찾을 수 없습니다." });
+    }
+
+    res.json({ message: "계정이 성공적으로 삭제되었습니다." });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "서버 오류가 발생했습니다." });
+  }
+});
+
+
 module.exports = router;

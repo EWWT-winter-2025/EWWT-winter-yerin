@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import styles from "./Home.module.css";
 import logo from '../../assets/logo.png';
+import CreateGroup from '../../components/createGroup/CreateGroup';
+import Grouplist from '../../components/grouplist/Grouplist';
 
 const Home = () => {
     const [nickname, setNickname] = useState('');
@@ -51,6 +53,7 @@ const Home = () => {
                     <div className={styles.nickname_container}>
                        <p>{nickname}님의 공간</p>
                     </div>
+                    <Grouplist />
                     <div className={styles.logout_btn} onClick={handleLogout}>
                         <p onClick={handleLogout}>로그아웃</p>
                     </div>
@@ -60,6 +63,7 @@ const Home = () => {
                         <p onClick={handleDeleteAccount}>회원탈퇴</p>
                     </div>
                     <div className={styles.group_container}>
+                        <CreateGroup />
                     </div>
                 </div>
             </div>

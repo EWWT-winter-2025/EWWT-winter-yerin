@@ -1,0 +1,16 @@
+.groupList {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.groupName {
+    color: white;
+}
+
+.groupItem {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

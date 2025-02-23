@@ -1,0 +1,104 @@
+.group_create_container {
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.group_create_title {
+  width: 40vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  margin-bottom: 30px;
+}
+
+.title {
+  width: 25vw;
+  font-size: 30px;
+  font-weight: 700;
+  color: white;
+}
+
+.divider {
+  width: 25vw;
+  background-color: white;
+  margin: 10px 0 10px 0;
+}
+
+.description {
+  color: white;
+  font-size: 15px;
+  font-weight: 100;
+}
+
+.group_input_container {
+  display: flex;
+  flex-direction: column;
+}
+
+.input_box {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.input_title {
+  width: 100px;
+}
+
+.text {
+  color: white;
+  font-size: 15px;
+  font-weight: 100;
+}
+
+.input {
+  border: none;
+  background-color: #e5f3e7;
+  width: 300px;
+  border-radius: 8px;
+  height: 30px;
+  padding-left: 10px;
+}
+
+.color {
+  border: none;
+  background-color: #e5f3e7;
+  width: 100px;
+  border-radius: 8px;
+  height: 30px;
+  padding-left: 10px;
+}
+
+.color_picker_container {
+  position: relative;
+}
+
+.color_button {
+  width: 100px;
+  height: 30px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.color_picker_popup {
+  position: absolute;
+  z-index: 2;
+  top: 100%;
+  left: 0;
+  margin-top: 10px;
+}
+
+.create_button {
+  border: none;
+  background-color: #e5f3e7;
+  width: 150px;
+  border-radius: 8px;
+  height: 30px;
+  padding-left: 10px;
+}

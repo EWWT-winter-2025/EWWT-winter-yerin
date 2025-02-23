@@ -1,0 +1,115 @@
+.groupInfoContainer {
+   padding: 3vw;
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   align-items: flex-start;
+   width: 100%;
+   height: 80vh;
+}
+
+.titleContainer {
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+}
+
+.groupName {
+   font-size: x-large;
+   font-weight: 700;
+   margin-right: 10px;
+}
+
+.dividerContainer {
+   display: flex;
+   flex-direction: row;
+   justify-content: flex-start;
+}
+
+.divider {
+   width: 300px;
+}
+
+.memberContainer {
+   display: flex;
+   flex-wrap: wrap;
+   max-height: 400px;
+   overflow-y: scroll;
+   width: 69vw;
+   margin-top: 2vh;
+   height: 58vh;
+   justify-content: space-between;
+}
+
+.addMemberBox, .memberBox {
+   width: 19vw;
+   padding: 10px;
+   border: 1px solid #ccc;
+   border-radius: 5px;
+   margin-bottom: 2vh;
+}
+
+.addMemberBox {
+   display: flex;
+   flex-direction: column;
+}
+
+.input {
+   margin-bottom: 10px;
+   padding: 5px;
+}
+
+.addButton {
+   background-color: #4CAF50;
+   color: white;
+   border: none;
+   padding: 10px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 16px;
+   margin: 4px 2px;
+   cursor: pointer;
+}
+
+.memberBox {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.profileImage {
+   width: 80px;
+   height: 80px;
+   border-radius: 50%;
+   object-fit: cover;
+   margin-bottom: 10px;
+}
+
+.memberInfo {
+   text-align: center;
+}
+
+/* 스크롤바 전체 스타일 */
+::-webkit-scrollbar {
+   width: 8px;
+ }
+ 
+ /* 스크롤바 트랙 (배경) 스타일 */
+ ::-webkit-scrollbar-track {
+   background: #f1f1f1;
+   border-radius: 10px;
+ }
+ 
+ /* 스크롤바 핸들 스타일 */
+ ::-webkit-scrollbar-thumb {
+   background: #888;
+   border-radius: 10px;
+ }
+ 
+ /* 스크롤바 핸들 호버 효과 */
+ ::-webkit-scrollbar-thumb:hover {
+   background: #555;
+ }
+ 

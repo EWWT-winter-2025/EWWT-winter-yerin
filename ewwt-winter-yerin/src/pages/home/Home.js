@@ -5,10 +5,12 @@ import styles from "./Home.module.css";
 import logo from '../../assets/logo.png';
 import CreateGroup from '../../components/createGroup/CreateGroup';
 import Grouplist from '../../components/grouplist/Grouplist';
+import GroupInfo from '../../components/groupInfo/GroupInfo';
 
 const Home = () => {
     const [nickname, setNickname] = useState('');
     const navigate = useNavigate();
+    const [selectedGroup, setSelectedGroup] = useState(null);
 
     useEffect(() => {
         const storedNickname = localStorage.getItem('nickname');
@@ -23,6 +25,10 @@ const Home = () => {
         localStorage.removeItem('token');
         localStorage.removeItem('nickname');
         navigate('/');
+    };
+
+    const handleGroupSelect = (group) => {
+        setSelectedGroup(group);
     };
 
     const handleDeleteAccount = async () => {
@@ -53,7 +59,7 @@ const Home = () => {
                     <div className={styles.nickname_container}>
                        <p>{nickname}님의 공간</p>
                     </div>
-                    <Grouplist />
+                    <Grouplist onGroupSelect={handleGroupSelect} />
                     <div className={styles.logout_btn} onClick={handleLogout}>
                         <p onClick={handleLogout}>로그아웃</p>
                     </div>
@@ -63,7 +69,11 @@ const Home = () => {
                         <p onClick={handleDeleteAccount}>회원탈퇴</p>
                     </div>
                     <div className={styles.group_container}>
-                        <CreateGroup />
+                    {selectedGroup ? (
+                            <GroupInfo group={selectedGroup} />
+                        ) : (
+                            <CreateGroup />
+                        )}
                     </div>
                 </div>
             </div>
